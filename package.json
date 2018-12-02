@@ -35,7 +35,7 @@
   ],
   "dependencies": {
     "htmlclean": "~3",
-    "through": "^2.3.6"
+    "through2": "~3"
   },
   "devDependencies": {
     "chai": "^2.2.0",

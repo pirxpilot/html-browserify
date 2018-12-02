@@ -1,4 +1,4 @@
-const through = require('through');
+const through = require('through2');
 const htmlclean = require('htmlclean');
 
 module.exports = function(file, { htmlclean : options = true } = {}) {
@@ -7,15 +7,16 @@ module.exports = function(file, { htmlclean : options = true } = {}) {
     options = {};
   }
 
-	let chunks = [];
+  let chunks = [];
 
-	return /\.(tpl|html)/.test(file) ? through(onwrite, onend) : through();
+  return /\.(tpl|html)/.test(file) ? through(onwrite, onend) : through();
 
-  function onwrite(chunk) {
-    return chunks.push(chunk);
+  function onwrite(chunk, enc, next) {
+    chunks.push(chunk);
+    next();
   }
 
-  function onend() {
+  function onend(next) {
     let jst = chunks.map(c => c.toString()).join('');
 
     if (options) {
@@ -23,7 +24,7 @@ module.exports = function(file, { htmlclean : options = true } = {}) {
     }
 
     const compiled = `module.exports = ${JSON.stringify(jst)};\n`;
-    this.queue(compiled);
-    return this.queue(null);
+    this.push(compiled);
+    next();
   }
 };
