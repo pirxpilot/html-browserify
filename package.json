@@ -1,29 +1,17 @@
 {
-  "name": "html-browserify",
+  "name": "@pirxpilot/html-browserify",
   "version": "0.0.6",
   "description": "Makes HTML files usuable as modules in Browserify",
-  "main": "index.js",
   "scripts": {
     "test": "mocha -u exports -R spec test/index"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/duckbox/html-browserify"
-  },
+  "repository": "pirxpilot/html-browserify",
   "author": {
     "name": "Chris Grant",
     "email": "duckbox38@gmail.com",
     "url": "http://duckbox.net"
   },
-  "bugs": {
-    "url": "https://github.com/duckbox/html-browserify/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/duckbox/html-browserify.git/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "keywords": [
     "browserify",
     "html",
@@ -39,5 +27,8 @@
   },
   "devDependencies": {
     "chai": "^2.2.0"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
