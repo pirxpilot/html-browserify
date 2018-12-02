@@ -22,11 +22,12 @@
     "browserify-transform"
   ],
   "dependencies": {
-    "htmlclean": "^2.6.3",
-    "through": "^2.3.6"
+    "htmlclean": "~3",
+    "through2": "~3"
   },
   "devDependencies": {
-    "chai": "^2.2.0"
+    "chai": "^2.2.0",
+    "mocha": "^5.2.0"
   },
   "files": [
     "index.js"
