@@ -34,7 +34,7 @@
     "browserify-transform"
   ],
   "dependencies": {
-    "htmlclean": "^2.6.3",
+    "htmlclean": "~3",
     "through": "^2.3.6"
   },
   "devDependencies": {
