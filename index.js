@@ -1,4 +1,4 @@
-const through = require('through2');
+const { Transform, PassThrough } = require('stream');
 const htmlclean = require('htmlclean');
 
 module.exports = function(file, { htmlclean : options = true } = {}) {
@@ -9,14 +9,14 @@ module.exports = function(file, { htmlclean : options = true } = {}) {
 
   let chunks = [];
 
-  return /\.(tpl|html)/.test(file) ? through(onwrite, onend) : through();
+  return /\.(tpl|html)/.test(file) ? new Transform({ transform, flush }) : new PassThrough();
 
-  function onwrite(chunk, enc, next) {
+  function transform(chunk, enc, next) {
     chunks.push(chunk);
     next();
   }
 
-  function onend(next) {
+  function flush(next) {
     let jst = chunks.map(c => c.toString()).join('');
 
     if (options) {

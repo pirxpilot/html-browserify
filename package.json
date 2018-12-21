@@ -22,8 +22,7 @@
     "browserify-transform"
   ],
   "dependencies": {
-    "htmlclean": "~3",
-    "through2": "~3"
+    "htmlclean": "~3"
   },
   "devDependencies": {
     "chai": "^2.2.0",
